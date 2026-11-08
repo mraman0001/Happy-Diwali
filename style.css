@@ -1,0 +1,624 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+:root {
+    --gold: #f6d58a;
+    --gold-light: #ffe8b2;
+    --pink: #ff9fc9;
+    --purple: #170b29;
+    --text: #f8eefa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #10071c;
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+/* BACKGROUND */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+
+    background:
+        radial-gradient(ellipse at 20% 20%, #54204f 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 75%, #3a174c 0%, transparent 40%),
+        linear-gradient(135deg, #10071c, #21102e, #10071c);
+}
+
+.ambient {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: -2;
+    animation: ambientMove 10s ease-in-out infinite alternate;
+}
+
+.ambient-one {
+    background: #e44e9d;
+    top: -120px;
+    left: -120px;
+}
+
+.ambient-two {
+    background: #bd8b39;
+    bottom: -120px;
+    right: -120px;
+    animation-delay: 3s;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background: #ffe9b0;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out alternate;
+}
+
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    bottom: -20px;
+    color: var(--gold);
+    opacity: 0;
+    animation: particleFloat linear infinite;
+}
+
+/* PAGE COMMON */
+
+.page {
+    min-height: 100vh;
+    padding: 55px 20px;
+    position: relative;
+    animation: pageReveal 1s ease both;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.page-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: #d7b98a;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.page-number {
+    color: var(--gold);
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    margin: 20px 0;
+}
+
+.gold-line {
+    width: 90px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 25px auto;
+    box-shadow: 0 0 12px #f6d58a;
+}
+
+/* WELCOME PAGE */
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    animation: pageReveal 1.2s ease;
+}
+
+.top-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #d9bd8e;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 35px;
+}
+
+.top-label span {
+    width: 25px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.diya-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.diya {
+    font-size: 85px;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 20px #ff9b39);
+    animation: diyaGlow 2s infinite alternate;
+}
+
+.diya-glow {
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    background: #ffac35;
+    filter: blur(45px);
+    opacity: 0.3;
+}
+
+.main-heading,
+.section-heading {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(65px, 10vw, 105px);
+    font-weight: 400;
+    color: var(--gold-light);
+    text-shadow: 0 0 25px #e9a73c70;
+    margin-top: 10px;
+}
+
+.name-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(27px, 5vw, 40px);
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--pink);
+    margin-top: 8px;
+}
+
+.intro {
+    max-width: 350px;
+    color: #e5d3e8;
+    font-size: 13px;
+    line-height: 2;
+    margin: 15px 0 35px;
+}
+
+/* BUTTONS */
+
+button {
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.main-btn {
+    padding: 15px 32px;
+    border-radius: 50px;
+    color: #311329;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+
+    background: linear-gradient(110deg, #f5d28a, #fff0c6, #e9b85c);
+    box-shadow: 0 0 25px #f5cf7850;
+
+    transition: 0.35s ease;
+}
+
+.main-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 0 40px #f5cf7890;
+}
+
+.btn-icon {
+    margin-left: 10px;
+}
+
+.next-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 25px;
+    background: transparent;
+    border: 1px solid #d8b76c70;
+    color: var(--gold-light);
+    border-radius: 40px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.next-btn:hover {
+    background: #ffffff12;
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+
+.bottom-decoration {
+    position: absolute;
+    bottom: 25px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #c9a875;
+}
+
+/* LOVE LETTER */
+
+.small-diya {
+    font-size: 35px;
+    filter: drop-shadow(0 0 15px orange);
+}
+
+.message {
+    max-width: 720px;
+    margin: 35px auto;
+    padding: 45px 40px;
+    position: relative;
+    text-align: left;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff0d,
+        #ffffff05
+    );
+
+    border: 1px solid #f6d58a45;
+    border-radius: 25px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 15px 50px #00000035,
+        inset 0 0 25px #ffffff05;
+}
+
+.message::before,
+.compliment-card::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px solid #f6d58a20;
+    border-radius: 19px;
+    pointer-events: none;
+}
+
+.message p {
+    position: relative;
+    color: #f0e5f1;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    line-height: 1.85;
+    margin-bottom: 25px;
+    white-space: pre-line;
+}
+
+.message p:first-of-type {
+    color: var(--gold-light);
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.message .love {
+    color: var(--pink);
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.signature {
+    color: var(--gold) !important;
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 30px !important;
+}
+
+.card-decoration {
+    position: absolute;
+    top: 15px;
+    right: 22px;
+    color: var(--gold);
+    font-size: 23px;
+}
+
+.bottom-star {
+    top: auto;
+    right: auto;
+    bottom: 12px;
+    left: 22px;
+}
+
+.footer {
+    color: #d6b88b;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin: 30px 0;
+}
+
+.footer span {
+    color: var(--pink);
+    margin: 0 8px;
+}
+
+/* COMPLIMENT PAGE */
+
+.compliment-page {
+    padding-top: 55px;
+}
+
+.sparkle {
+    font-size: 35px;
+    color: var(--gold);
+    animation: sparkleGlow 2s infinite alternate;
+}
+
+.compliment-intro {
+    color: #dfcfe3;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    margin: 25px auto;
+    line-height: 1.8;
+    max-width: 550px;
+}
+
+.compliment-card {
+    position: relative;
+    max-width: 700px;
+    margin: 35px auto;
+    padding: 45px 40px;
+    text-align: left;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff12,
+        #ffffff05
+    );
+
+    border: 1px solid #f6d58a55;
+    border-radius: 25px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 15px 50px #00000035,
+        0 0 35px #ff9acb12;
+}
+
+.compliment-card p {
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    color: #f5e8f3;
+    font-size: 22px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.compliment-card .final-compliment {
+    color: var(--pink);
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.ending {
+    font-family: 'Great Vibes', cursive;
+    font-size: 55px;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-top: 40px;
+    text-shadow: 0 0 20px #ffbf5660;
+}
+
+.ending-heart {
+    font-size: 28px;
+    margin: 10px 0 25px;
+    animation: heartbeat 1.5s infinite;
+}
+
+/* HEARTS */
+
+#hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.heart {
+    position: absolute;
+    bottom: -40px;
+    animation: floatUp 4s linear forwards;
+}
+
+/* ANIMATIONS */
+
+@keyframes pageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes diyaGlow {
+    from {
+        filter: drop-shadow(0 0 8px #ff9b39);
+    }
+
+    to {
+        filter: drop-shadow(0 0 30px #ffbd55);
+    }
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes sparkleGlow {
+    from {
+        opacity: 0.5;
+        text-shadow: 0 0 5px #ffd36e;
+    }
+
+    to {
+        opacity: 1;
+        text-shadow: 0 0 25px #ffd36e;
+    }
+}
+
+@keyframes ambientMove {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(70px, 50px);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 600px) {
+
+    .page {
+        padding: 35px 16px;
+    }
+
+    .page-top {
+        margin-bottom: 35px;
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .main-heading,
+    .section-heading {
+        font-size: 65px;
+    }
+
+    .name-heading {
+        font-size: 27px;
+    }
+
+    .message {
+        padding: 35px 25px;
+    }
+
+    .message p {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    .message p:first-of-type {
+        font-size: 23px;
+    }
+
+    .compliment-card {
+        padding: 35px 25px;
+    }
+
+    .compliment-card p {
+        font-size: 19px;
+        line-height: 1.8;
+    }
+
+    .compliment-card .final-compliment {
+        font-size: 20px;
+    }
+
+    .compliment-intro {
+        font-size: 19px;
+    }
+
+    .ending {
+        font-size: 45px;
+    }
+
+    .bottom-decoration {
+        font-size: 8px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
